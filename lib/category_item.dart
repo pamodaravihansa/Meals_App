@@ -14,7 +14,7 @@ class CategoryItem extends StatelessWidget {
     // Navigator.push(
     //     ctx, MaterialPageRoute(builder: (c) => CategoryMeals(id, title)));
 
-    Navigator.of(ctx).pushNamed('/category_meals', arguments: {
+    Navigator.of(ctx).pushNamed(CategoryMeals.routeName, arguments: {
       'id': id,
       'title': title,
     });
