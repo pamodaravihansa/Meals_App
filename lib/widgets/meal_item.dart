@@ -16,6 +16,22 @@ class MealItem extends StatelessWidget {
     @required this.affordability,
   });
 
+  String get complexitytext {
+    switch (complexity) {
+      case Complexity.Simple:
+        return 'Simple';
+        break;
+      case Complexity.Challenging:
+        return 'Challenging';
+        break;
+      case Complexity.Hard:
+        return 'Hard';
+        break;
+      default:
+        return 'Unknown';
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return InkWell(
@@ -45,16 +61,19 @@ class MealItem extends StatelessWidget {
                   bottom: 20,
                   right: 10,
                   child: Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      color: Colors.black54,
+                    ),
                     width: 300,
                     padding: EdgeInsets.symmetric(
-                      horizontal: 5,
-                      vertical: 5,
+                      horizontal: 10,
+                      vertical: 10,
                     ),
-                    color: Colors.black54,
                     child: Text(
                       title,
                       style: TextStyle(
-                        fontSize: 26,
+                        fontSize: 20,
                         color: Colors.white,
                       ),
                       softWrap: true,
@@ -64,6 +83,36 @@ class MealItem extends StatelessWidget {
                 ),
               ],
             ),
+            Padding(
+              padding: EdgeInsets.all(20),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  Row(
+                    children: [
+                      Icon(
+                        Icons.schedule,
+                      ),
+                      SizedBox(
+                        width: 6,
+                      ),
+                      Text('$duration min'),
+                    ],
+                  ),
+                  Row(
+                    children: [
+                      Icon(
+                        Icons.work,
+                      ),
+                      SizedBox(
+                        width: 6,
+                      ),
+                      Text(complexitytext),
+                    ],
+                  ),
+                ],
+              ),
+            )
           ],
         ),
       ),
