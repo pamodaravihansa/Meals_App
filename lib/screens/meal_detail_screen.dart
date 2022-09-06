@@ -5,6 +5,16 @@ class MealDetail extends StatelessWidget {
   const MealDetail({Key key}) : super(key: key);
   static const routeName = '/meal-detail';
 
+  Widget buildSectionTitle(BuildContext context, String title) {
+    return Container(
+      margin: EdgeInsets.symmetric(vertical: 10),
+      child: Text(
+        title,
+        style: Theme.of(context).textTheme.headline5,
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final mealId = ModalRoute.of(context).settings.arguments as String;
@@ -24,13 +34,7 @@ class MealDetail extends StatelessWidget {
               fit: BoxFit.cover,
             ),
           ),
-          Container(
-            margin: EdgeInsets.symmetric(vertical: 10),
-            child: Text(
-              'Ingrediends',
-              style: Theme.of(context).textTheme.headline5,
-            ),
-          ),
+          buildSectionTitle(context, 'Ingredients'),
           Container(
             decoration: BoxDecoration(
               color: Colors.white,
@@ -51,6 +55,7 @@ class MealDetail extends StatelessWidget {
                     )),
                 itemCount: selectedMeal.ingredients.length),
           ),
+          buildSectionTitle(context, 'Steps'),
         ],
       ),
     );
