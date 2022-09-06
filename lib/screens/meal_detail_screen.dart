@@ -24,6 +24,33 @@ class MealDetail extends StatelessWidget {
               fit: BoxFit.cover,
             ),
           ),
+          Container(
+            margin: EdgeInsets.symmetric(vertical: 10),
+            child: Text(
+              'Ingrediends',
+              style: Theme.of(context).textTheme.headline5,
+            ),
+          ),
+          Container(
+            decoration: BoxDecoration(
+              color: Colors.white,
+              border: Border.all(color: Colors.grey),
+              borderRadius: BorderRadius.circular(10),
+            ),
+            margin: EdgeInsets.all(10),
+            padding: EdgeInsets.all(10),
+            height: 150,
+            width: 300,
+            child: ListView.builder(
+                itemBuilder: ((context, index) => Container(
+                      color: Colors.white,
+                      margin: EdgeInsets.all(5),
+                      child: Text(
+                        selectedMeal.ingredients[index],
+                      ),
+                    )),
+                itemCount: selectedMeal.ingredients.length),
+          ),
         ],
       ),
     );
