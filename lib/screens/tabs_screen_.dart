@@ -10,9 +10,9 @@ class TabsScreen extends StatefulWidget {
 }
 
 class _TabsScreenState extends State<TabsScreen> {
-  final List<Widget> _pages = [
-    CategoriesScreen(),
-    FavouritesScreen(),
+  final List<Map<String, Object>> _pages = [
+    {'page': CategoriesScreen(), 'title': 'Categories'},
+    {'page': FavouritesScreen(), 'title': 'Favourites'},
   ];
 
   int _selectedPageIndex = 0;
@@ -27,21 +27,24 @@ class _TabsScreenState extends State<TabsScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Meals'),
+        title: Text(_pages[_selectedPageIndex]['title']),
       ),
-      body: _pages[_selectedPageIndex],
+      body: _pages[_selectedPageIndex]['page'],
       bottomNavigationBar: BottomNavigationBar(
         onTap: _selectPage,
         selectedItemColor: Theme.of(context).colorScheme.secondary,
-        unselectedItemColor: Colors.white,
+        unselectedItemColor: Colors.white60,
         backgroundColor: Theme.of(context).colorScheme.primary,
         currentIndex: _selectedPageIndex,
+        type: BottomNavigationBarType.shifting,
         items: [
           BottomNavigationBarItem(
+            backgroundColor: Theme.of(context).colorScheme.primary,
             icon: Icon(Icons.category),
             label: 'Categories',
           ),
           BottomNavigationBarItem(
+            backgroundColor: Theme.of(context).colorScheme.primary,
             icon: Icon(Icons.favorite),
             label: 'Favourites',
           )
