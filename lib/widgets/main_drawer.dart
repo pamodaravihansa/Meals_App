@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_complete_guide/screens/tabs_screen_.dart';
 import '../screens/filters_screen.dart';
 import '../screens/category_meals_screen.dart';
 
@@ -48,7 +49,7 @@ class MainDrawer extends StatelessWidget {
             'Meals',
             Icons.restaurant,
             () {
-              Navigator.of(context).pushNamed(CategoryMeals.routeName);
+              Navigator.of(context).pushNamed(TabsScreen.routeName);
             },
           ),
           buildListTile(
