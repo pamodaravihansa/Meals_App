@@ -3,7 +3,8 @@ import 'package:flutter/material.dart';
 import '../widgets/main_drawer.dart';
 
 class FiltersScreen extends StatefulWidget {
-  const FiltersScreen({Key key}) : super(key: key);
+  final Function saveFilters;
+  const FiltersScreen(this.saveFilters);
 
   static const routeName = '/filtersScreen';
 
@@ -36,6 +37,12 @@ class _FiltersScreenState extends State<FiltersScreen> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Your Filters'),
+        actions: [
+          IconButton(
+            onPressed: widget.saveFilters,
+            icon: Icon(Icons.save),
+          )
+        ],
       ),
       drawer: MainDrawer(),
       body: Column(

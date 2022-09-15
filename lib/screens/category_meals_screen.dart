@@ -1,14 +1,12 @@
 import 'package:flutter/material.dart';
 
-import '../widgets/meal_item.dart';
-import '../dummy_data.dart';
+import '../widgets/meal_item.dart'; 
 import '../models/meal.dart';
 
 class CategoryMeals extends StatefulWidget {
-  // final String categoryId;
-  // final String categoryTitle;
+  final List<Meal> availableMeals;
 
-  // CategoryMeals(this.categoryId, this.categoryTitle);
+  CategoryMeals(this.availableMeals);
 
   static const routeName = '/categorymeals';
 
@@ -35,7 +33,7 @@ class _CategoryMealsState extends State<CategoryMeals> {
       final categoryId = routeArgs['id'];
       categoryTitle = routeArgs['title'];
 
-      displayedMeals = DUMMY_MEALS
+      displayedMeals = widget.availableMeals
           .where((meal) => meal.categories.contains(categoryId))
           .toList();
 
