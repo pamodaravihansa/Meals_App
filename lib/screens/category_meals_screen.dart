@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../widgets/meal_item.dart'; 
+import '../widgets/meal_item.dart';
 import '../models/meal.dart';
 
 class CategoryMeals extends StatefulWidget {
@@ -57,7 +57,6 @@ class _CategoryMealsState extends State<CategoryMeals> {
       ),
       body: ListView.builder(
         itemBuilder: (ctx, index) => MealItem(
-            removeItem: _removeMeal,
             id: displayedMeals[index].id,
             title: displayedMeals[index].title,
             imageUrl: displayedMeals[index].imageUrl,

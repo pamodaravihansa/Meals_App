@@ -5,7 +5,7 @@ import '../widgets/main_drawer.dart';
 class FiltersScreen extends StatefulWidget {
   final Function saveFilters;
   final Map<String, bool> currentFilter;
-  const FiltersScreen(this.saveFilters, this.currentFilter);
+  const FiltersScreen(this.currentFilter,this.saveFilters, );
 
   static const routeName = '/filtersScreen';
 
