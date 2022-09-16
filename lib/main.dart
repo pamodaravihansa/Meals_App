@@ -74,7 +74,7 @@ class _MyAppState extends State<MyApp> {
         TabsScreen.routeName: (ctx) => TabsScreen(),
         CategoryMeals.routeName: (ctx) => CategoryMeals(_availableMeals),
         MealDetail.routeName: (ctx) => MealDetail(),
-        FiltersScreen.routeName: (ctx) => FiltersScreen(_setFilters),
+        FiltersScreen.routeName: (ctx) => FiltersScreen(_filters, _setFilters),
       },
       onUnknownRoute: (settings) {
         return MaterialPageRoute(
